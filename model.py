@@ -1,7 +1,7 @@
 """Models for movie ratings app."""
 
 from flask_sqlalchemy import SQLAlchemy
-import datetime
+from datetime import datetime
 
 db = SQLAlchemy()
 
@@ -59,8 +59,9 @@ class Rating(db.Model):
         return f'<Rating rating_id={self.rating_id} score={self.score}>'
 
 def connect_to_db(flask_app, db_uri='postgresql:///ratings', echo=True):
-    flask_app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql:///{db_uri}"
-    flask_app.config['SQLALCHEMY_ECHO'] = True    
+    # flask_app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql:///{db_uri}"
+    flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
+    # flask_app.config['SQLALCHEMY_ECHO'] = True    
     flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     db.app = flask_app
@@ -76,4 +77,4 @@ if __name__ == '__main__':
     # too annoying; this will tell SQLAlchemy not to print out every
     # query it executes.
 
-    connect_to_db(app, "ratings")
+    connect_to_db(app)
