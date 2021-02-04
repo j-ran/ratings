@@ -62,7 +62,7 @@ def connect_to_db(flask_app, db_uri='postgresql:///ratings', echo=True):
     # originally had the following line incorrect:
     # flask_app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql:///{db_uri}"
     flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
-    flask_app.config['SQLALCHEMY_ECHO'] = True    
+    #flask_app.config['SQLALCHEMY_ECHO'] = True    
     flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     db.app = flask_app
