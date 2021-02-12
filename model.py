@@ -67,7 +67,7 @@ class Rating(db.Model):
 # Though for testing, you will want to change the postgresql database
 # to a 'testdb' instead of 'db_uri'
 
-    # Re: 'echo=True' in funciton args below ::
+    # Re: 'echo=True' in function args below ::
     # Set connect_to_db(app, echo=False) if your program output gets
     # too annoying; this will tell SQLAlchemy not to print out every
     # query it executes.
